@@ -1,7 +1,6 @@
-baseURL = "https://username-anda.github.io/kkn-sragen-5/" # Ganti dengan link github pages nanti
+baseURL = "https://kkn-sragen-5.netlify.app/"
 languageCode = "id-ID"
 title = "KKN Kelompok 5 Sragen Tengah"
-theme = ""
 
 [params]
   description = "Portal Berita Kegiatan KKN Kelompok 5 Sragen Tengah"
