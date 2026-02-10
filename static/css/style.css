@@ -49,36 +49,64 @@ body {
 }
 
 /* --- NAVBAR FIXED --- */
-.navbar {
-    background: var(--white);
-    height: 70px;
-    width: 100%;
-    position: fixed;
-    top: 0;
+/* --- UPDATE BAGIAN INI SAJA --- */
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Link Menu (Beranda, dll) */
+.nav-link {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    position: relative; /* Wajib untuk efek garis bawah */
+    transition: color 0.3s ease; /* Animasi perubahan warna halus */
+}
+
+/* Efek saat Kursor Diarahkan (Hover) */
+.nav-link:hover {
+    color: var(--primary); /* Berubah jadi Oranye */
+}
+
+/* Bonus: Efek Garis Bawah Muncul Pelan-pelan */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
     left: 0;
-    z-index: 999;
-    box-shadow: var(--shadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px; /* Samakan dengan main content */
-    padding: 0 20px;
-    box-sizing: border-box;
+.nav-link:hover::after {
+    width: 100%; /* Garis memanjang saat dihover */
 }
 
+/* Tombol Login Admin */
+.btn-login {
+    background: var(--primary);
+    color: white !important;
+    padding: 8px 25px;
+    border-radius: 50px; /* Lebih bulat modern */
+    transition: all 0.3s ease; /* Animasi halus semua properti */
+    box-shadow: 0 4px 6px rgba(255, 140, 0, 0.2); /* Bayangan oranye tipis */
+}
+
+/* Efek Tombol Login saat Dihover */
+.btn-login:hover {
+    background: var(--primary-dark); /* Warna makin gelap */
+    transform: translateY(-2px); /* Tombol naik sedikit seolah ditekan */
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.3); /* Bayangan makin tebal */
+}
 .logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--dark); }
 .logo span { color: var(--primary); }
-
-.nav-menu { display: flex; list-style: none; gap: 20px; margin: 0; padding: 0; }
-.nav-link { text-decoration: none; color: var(--dark); font-weight: 600; }
-.btn-login { background: var(--primary); color: white !important; padding: 8px 20px; border-radius: 20px; }
 
 /* --- GRID BERITA --- */
 .news-grid {
