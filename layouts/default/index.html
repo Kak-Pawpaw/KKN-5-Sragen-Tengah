@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="hero">
+    <h2>Kabar KKN Sragen Tengah</h2>
+    <p>Update kegiatan terkini dari Kelompok 5</p>
+</section>
+
+<div class="news-grid">
+    {{ range .Pages }}
+    <article class="news-card">
+        <div class="card-thumb">
+            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+        </div>
+        <div class="card-content">
+            <span class="date">{{ .Date.Format "02 Jan 2006" }}</span>
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary | truncate 100 }}</p>
+            <a href="{{ .Permalink }}" class="read-more">Baca Selengkapnya →</a>
+        </div>
+    </article>
+    {{ end }}
+</div>
+{{ end }}
