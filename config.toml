@@ -5,3 +5,6 @@ title = "KKN Kelompok 5 Sragen Tengah"
 [params]
   description = "Portal Berita Kegiatan KKN Kelompok 5 Sragen Tengah"
   author = "Kelompok 5"
+
+# Shortname dari screenshot Anda
+disqusShortname = "kkn-sragen-5"
