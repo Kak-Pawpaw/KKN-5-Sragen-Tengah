@@ -159,46 +159,45 @@ body {
 /* --- RESPONSIVE MOBILE (HP) --- */
 @media screen and (max-width: 768px) {
     .menu-toggle {
-        display: block; /* Munculkan tombol di HP */
+        display: block;
     }
 
-    /* ANIMASI SILANG (X) SAAT DIKLIK */
-    .menu-toggle.is-active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.is-active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .menu-toggle.is-active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+    /* Animasi Tombol X */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     /* Menu Dropdown */
     .nav-menu {
         position: fixed;
-        left: -100%; /* Sembunyi di kiri */
-        top: 70px;   /* Di bawah navbar */
+        left: -100%;
+        top: 70px;
         flex-direction: column;
         background-color: var(--white);
         width: 100%;
         text-align: center;
         padding: 20px 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        transition: 0.3s ease-in-out; /* Animasi geser halus */
+        transition: 0.3s ease-in-out;
     }
 
     .nav-menu.active {
-        left: 0; /* Muncul ke tengah */
+        left: 0;
     }
 
     .nav-menu li {
         margin: 15px 0;
     }
     
-    /* Fix Grid di HP agar 1 kolom */
     .news-grid {
         grid-template-columns: 1fr;
     }
+
+    /* --- INI PERBAIKANNYA: TAMBAH JARAK BAWAH --- */
+    .main-content {
+        padding-bottom: 80px; /* Memberi jarak lega sebelum footer */
+    }
+
     .container {
         padding: 0 15px;
     }
