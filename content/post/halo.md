@@ -1,7 +1,7 @@
 ---
 title: Selamat Datang di KKN Sragen 5
 date: 2026-02-10T12:00:00+07:00
-thumbnail: /img/chatgpt-image-10-feb-2026-17.31.28.png
+thumbnail: /img/logo.png
 draft: false
 ---
 
