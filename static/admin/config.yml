@@ -1,13 +1,13 @@
 backend:
   name: git-gateway
-  branch: main # Ganti 'master' jika branch utama anda master
+  branch: main
 
 media_folder: "static/img"
 public_folder: "/img"
 
 collections:
   - name: "post"
-    label: "Berita & Artikel"
+    label: "Selamat Datang di Artikel dan Berita KKN 5 Sragen Tengah..." 
     folder: "content/post"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
