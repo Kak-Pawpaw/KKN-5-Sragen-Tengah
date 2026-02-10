@@ -1,0 +1,50 @@
+/* --- PAKSA HEADER ADMIN FIXED (NEMPEL DI ATAS) --- */
+/* Target elemen header bawaan Decap CMS */
+div[class*="AppHeader-AppHeader"] {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Turunkan konten agar tidak ketutupan header yang fixed */
+div[class*="AppMainContainer"] {
+    padding-top: 70px !important; /* Sesuaikan tinggi header */
+}
+
+/* --- PERBAIKAN TAMPILAN MOBILE (HP) --- */
+@media (max-width: 768px) {
+    /* Atur Sidebar (Menu Kiri) agar tidak menuhin layar */
+    div[class*="SidebarContainer"] {
+        width: 100% !important;
+        position: relative !important;
+        height: auto !important;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    /* Link Navigasi di Sidebar dibuat berderet ke samping (biar hemat tempat) */
+    div[class*="SidebarNavLink"] {
+        display: inline-block !important;
+        margin-right: 15px !important;
+        font-size: 14px !important;
+    }
+
+    /* Area konten utama dibuat full width */
+    main {
+        padding: 10px !important;
+        width: 100% !important;
+    }
+
+    /* Tombol-tombol dibuat lebih besar agar enak dipencet jari */
+    button {
+        min-height: 44px;
+    }
+    
+    /* Hilangkan scroll horizontal yang mengganggu */
+    body, html {
+        overflow-x: hidden;
+    }
+}

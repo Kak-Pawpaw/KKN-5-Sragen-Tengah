@@ -7,7 +7,7 @@ public_folder: "/img"
 
 collections:
   - name: "post"
-    label: "Selamat Datang di Artikel dan Berita KKN 5 Sragen Tengah..." 
+    label: "Berita & Artikel.." 
     folder: "content/post"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
