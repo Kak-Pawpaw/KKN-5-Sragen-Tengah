@@ -1,5 +1,5 @@
 :root {
-    --primary: #FF8C00; /* Oranye */
+    --primary: #FF8C00;
     --primary-dark: #e07b00;
     --dark: #333;
     --light: #f8f9fa;
@@ -7,32 +7,53 @@
     --shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+/* 1. RESET ROOT AGAR FULL SCREEN (SOLUSI FOOTER) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 0;
     background: var(--light);
     color: var(--dark);
-    padding-top: 80px; /* Padding agar konten tidak ketutupan navbar fixed */
-
-    /* --- TEKNIK STICKY FOOTER --- */
-    min-height: 100vh; /* Tinggi body minimal 100% tinggi layar HP/Laptop */
-    display: flex;     /* Ubah jadi mode fleksibel */
-    flex-direction: column; /* Susunan vertikal (atas ke bawah) */
-    box-sizing: border-box; /* Agar padding tidak menambah tinggi total */
+    
+    /* Teknik Footer Nempel Bawah */
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; /* Minimal setinggi layar HP/Laptop */
+    padding-top: 80px; /* Jarak untuk Navbar Fixed */
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* 2. MAIN CONTENT YANG MELEBAR & MENDORONG FOOTER */
+.main-content {
+    flex: 1 0 auto; /* KUNCI: Tumbuh mengisi ruang kosong */
+    width: 100%;    /* KUNCI: Agar tidak gepeng ke tengah */
+    max-width: 1100px; /* Batas lebar agar rapi */
+    margin: 0 auto;    /* Posisi tengah secara horizontal */
+    padding: 20px;     /* Jarak napas */
+    box-sizing: border-box;
 }
 
-/* --- NAVBAR FIXED KEREN --- */
+/* 3. FOOTER ANTI NGAMBANG */
+.footer {
+    flex-shrink: 0; /* Jangan biarkan footer penyok */
+    width: 100%;
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Dorongan ekstra ke bawah */
+}
+
+/* --- NAVBAR FIXED --- */
 .navbar {
     background: var(--white);
     height: 70px;
     width: 100%;
-    position: fixed; /* Kunci biar nempel di atas */
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
@@ -47,118 +68,25 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 100%;
+    max-width: 1100px; /* Samakan dengan main content */
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: var(--dark);
-}
+.logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--dark); }
+.logo span { color: var(--primary); }
 
-.logo span {
-    color: var(--primary);
-}
+.nav-menu { display: flex; list-style: none; gap: 20px; margin: 0; padding: 0; }
+.nav-link { text-decoration: none; color: var(--dark); font-weight: 600; }
+.btn-login { background: var(--primary); color: white !important; padding: 8px 20px; border-radius: 20px; }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.nav-link:hover {
-    color: var(--primary);
-}
-
-.btn-login {
-    background: var(--primary);
-    color: white !important;
-    padding: 8px 20px;
-    border-radius: 20px;
-}
-
-.btn-login:hover {
-    background: var(--primary-dark);
-}
-
-/* --- TOMBOL HAMBURGER (Mobile) --- */
-.menu-toggle {
-    display: none; /* Hilang di Laptop */
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    transition: all 0.3s ease-in-out;
-    background-color: var(--dark);
-}
-
-/* --- RESPONSIVE MOBILE (HP) --- */
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Muncul di HP */
-    }
-
-    .menu-toggle.is-active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.is-active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .menu-toggle.is-active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .nav-menu {
-        position: fixed;
-        left: -100%; /* Sembunyi di kiri layar */
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--white);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        padding: 20px 0;
-    }
-
-    .nav-menu.active {
-        left: 0; /* Muncul saat diklik */
-    }
-
-    .nav-menu li {
-        margin: 15px 0;
-    }
-    
-    /* Perbaikan Grid Berita di HP */
-    .news-grid {
-        grid-template-columns: 1fr !important; /* 1 kolom penuh */
-    }
-    
-    .news-card {
-        margin-bottom: 20px;
-    }
-}
-
-/* --- UMUM --- */
+/* --- GRID BERITA --- */
 .news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    width: 100%; /* Pastikan grid full width */
 }
 
 .news-card {
@@ -166,28 +94,31 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow);
+    display: flex;      /* Perbaikan struktur kartu */
+    flex-direction: column;
 }
 
-.card-thumb img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
+.card-thumb img { width: 100%; height: 200px; object-fit: cover; }
+.card-content { padding: 1.5rem; flex-grow: 1; }
 
-.card-content {
-    padding: 1.5rem;
-}
+/* --- RESPONSIVE MOBILE --- */
+.menu-toggle { display: none; cursor: pointer; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--dark); transition: 0.3s; }
 
-.footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    background: var(--dark);
-    color: white;
-}
-
-/* Tambahkan ini di bawah komentar /* --- UMUM --- */ */
-.main-content {
-    flex: 1; /* KUNCI: Area ini akan melar mengisi ruang kosong */
-    width: 100%; /* Memastikan lebar container tetap aman */
+@media screen and (max-width: 768px) {
+    .menu-toggle { display: block; }
+    
+    .nav-menu {
+        position: fixed; left: -100%; top: 70px; 
+        flex-direction: column; background-color: var(--white); 
+        width: 100%; text-align: center; padding: 20px 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+    .nav-menu.active { left: 0; }
+    .nav-menu li { margin: 15px 0; }
+    
+    /* Fix Grid di HP */
+    .news-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 15px; }
 }
