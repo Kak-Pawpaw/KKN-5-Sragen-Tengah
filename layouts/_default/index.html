@@ -5,7 +5,7 @@
 </section>
 
 <div class="news-grid">
-    {{ range .Pages }}
+    {{ range .Site.RegularPages }}
     <article class="news-card">
         <div class="card-thumb">
             <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
