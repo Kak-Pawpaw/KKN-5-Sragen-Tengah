@@ -1,0 +1,35 @@
+{{ define "main" }}
+<article class="single-post">
+    <header class="post-header">
+        <h1>{{ .Title }}</h1>
+        <p class="meta">Diposting pada {{ .Date.Format "02 January 2006" }}</p>
+    </header>
+    
+    <div class="post-image">
+        <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+    </div>
+
+    <div class="post-content">
+        {{ .Content }}
+    </div>
+</article>
+
+<div class="comments-section">
+    <h3>Komentar</h3>
+    <script src="https://giscus.app/client.js"
+        data-repo="USERNAME/REPO-NAME" 
+        data-repo-id="DAPATKAN_DARI_GISCUS"
+        data-category="General"
+        data-category-id="DAPATKAN_DARI_GISCUS"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="id"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+{{ end }}

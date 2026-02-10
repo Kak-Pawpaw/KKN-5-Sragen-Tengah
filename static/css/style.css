@@ -1,0 +1,35 @@
+:root {
+    --primary: #FF8C00; /* Oranye Sragen */
+    --dark: #333;
+    --light: #f4f4f4;
+    --white: #ffffff;
+}
+
+body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--light); color: var(--dark); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+a { text-decoration: none; color: inherit; }
+
+/* Navbar */
+.navbar { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+.logo { margin: 0; color: var(--dark); font-size: 1.5rem; }
+.logo span { color: var(--primary); }
+
+/* Grid Berita */
+.news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.news-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+.news-card:hover { transform: translateY(-5px); }
+.card-thumb img { width: 100%; height: 200px; object-fit: cover; }
+.card-content { padding: 1.5rem; }
+.date { font-size: 0.8rem; color: #888; }
+.read-more { color: var(--primary); font-weight: 600; display: inline-block; margin-top: 10px; }
+
+/* Single Post */
+.single-post { background: var(--white); padding: 2rem; border-radius: 8px; margin-top: 2rem; }
+.post-image img { width: 100%; border-radius: 8px; margin: 20px 0; }
+.post-header h1 { color: var(--primary); }
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .news-grid { grid-template-columns: 1fr; } /* 1 kolom di HP */
+    .container { padding: 0 15px; }
+}
