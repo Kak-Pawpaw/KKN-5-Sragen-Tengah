@@ -12,7 +12,13 @@ body {
     margin: 0;
     background: var(--light);
     color: var(--dark);
-    padding-top: 80px; /* PENTING: Supaya konten gak ketutupan navbar fixed */
+    padding-top: 80px; /* Padding agar konten tidak ketutupan navbar fixed */
+
+    /* --- TEKNIK STICKY FOOTER --- */
+    min-height: 100vh; /* Tinggi body minimal 100% tinggi layar HP/Laptop */
+    display: flex;     /* Ubah jadi mode fleksibel */
+    flex-direction: column; /* Susunan vertikal (atas ke bawah) */
+    box-sizing: border-box; /* Agar padding tidak menambah tinggi total */
 }
 
 .container {
@@ -178,4 +184,10 @@ body {
     margin-top: 50px;
     background: var(--dark);
     color: white;
+}
+
+/* Tambahkan ini di bawah komentar /* --- UMUM --- */ */
+.main-content {
+    flex: 1; /* KUNCI: Area ini akan melar mengisi ruang kosong */
+    width: 100%; /* Memastikan lebar container tetap aman */
 }
